@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>What Next By Nupur </title>
+<style>
+*{
+fontsize:60px;
+}
+body{background-color:lightyellow;}
+</style>
+<script>
+function find()
+{
+event.preventDefault();
+let name= document.getElementById("name");
+let Job= document.getElementById("Job");
+let Ms= document.getElementById("Ms");
+let MBA= document.getElementById("MBA");
+let ans= document.getElementById("ans");
+let choice="";
+if(Job.checked)     choice="Job";
+else if(Ms.checked) choice="Ms";
+else                choice="MBA";
+
+if (name.value =="")
+{
+alert("name cannot be empty");
+ans.innerHTML="";
+name.focus();
+return;
+}
+else if(name.value.trim()=="")
+{
+alert("name cannot be spaces");
+ans.innerHTML="";
+name.focus();
+return;
+}
+else if(! name.value.match(/^ [A-Za-z ]+$/))
+{
+alert("name should contain alphabets!");
+name.value="";
+ans.innerHTML="";
+name.focus();
+return;
+}
+let msg="name : " +name.value +" choice : "+ choice;
+ans.innerHTML=msg; 
+}
+</script>
+</head>
+<body>
+<center>
+<h1>WHAT NEXT?</h1>
+<form onsubmit="find()">
+<input type="text" step="any" placeholder="enter ur name" id="name"/>
+<br><br>
+<input type="radio" name="c"id="Job" checked="true"/>Job
+<input type="radio" name="c"id="Ms" />Ms
+<input type="radio" name="c"id="MBA"/>MBA
+<br><br>
+<input type="submit"/>
+
+<form>
+<h2 id="ans"></h2>
+</center>
+</body>
+
+</html>
